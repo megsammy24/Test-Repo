@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html>
+<title>Data Feeds</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+body {font-family: "Times New Roman", Georgia, Serif;}
+h1,h2,h3,h4,h5,h6 {
+    font-family: "Playfair Display";
+    letter-spacing: 5px;
+}
+/* Standard syntax */
+@keyframes base{
+    0%   { left:0px; top:0px;}
+    25%  { left:200px; top:0px;}
+    50%  { left:200px; top:200px;}
+    75%  { left:0px; top:200px;}
+    100% { left:0px; top:0px;}
+}
+h1 {animation-direction:  backwards;
+width: 100px;
+    height: 100px;
+    position: relative;
+    animation-name: base;
+    animation-duration: 2s;
+}
+</style>
+<script>
+var app = angular.module("myApp", ["ngRoute"]);
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        templateUrl : "main.htm"
+    })
+    .when("/change", {
+        templateUrl : "change.htm"
+    });
+});
+</script>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px; letter-size:12pt">
+    <a class="w3-bar-item ">Data Feed Form</a>
+    <!-- Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="#!change" class="w3-bar-item w3-button">Change Record</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
+  <img class="w3-image" src="" width="1600" height="200">
+  <div class="w3-display-bottomleft w3-padding-large w3-opacity" animation: header-spin 1.5>
+  </div>
+</header>
+
+
+
+</script>
+<script>
+function showDate(){
+  document.getElementById("threat.date").innerHTML = new Date(year, month, date);
+}
+</script>
+
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:1100px">
+  <!-- Contact Section -->
+  <div class="w3-container w3-padding-64" id="main">
+    <h1>Data Feeds</h1><br>
+    <p class="w3-text-blue-grey w3-large"><b>Fill out what you can!</b></p>
+
+    <form id="threat" action="./feeds.py"method = "POST" target="_blank">
+	   <p><input class="w3-input w3-padding-16" type="text" placeholder="Malicious IP Address" required name="ip_addr_m"></p>
+      <p><input class="w3-input w3-padding-16" type="time" placeholder="Time of Sign In Attempt" value="00:00:00" required name = "time"></p>
+      <p><input class="w3-input w3-padding-16" type="date" placeholder=showDate() value="showDate()" required name = "date"></p>
+      <p></p>
+      <p><class="w3-padding-16"><b>Does this IP Address have a history of malicious activity?</b></p>
+      <p><input class="w3-input w3-padding-16" type="radio"  value="Yes" name = "hist">Yes</p>
+      <p><input class="w3-input w3-padding-16" type="radio"  value="No" name = "hist" checked>No</p>
+      <p></p>
+      <p><class="w3-padding-16"><b>Has another university confirmed this IP address to be malevolent?</b></p>
+      <p><input class="w3-input w3-padding-16" type="radio"  value="Yes" name = "confirm">Yes</p>
+        <p><input class="w3-input w3-padding-16" type="radio"  value="No" name = "confirm" checked>No</p>
+      <p><button class="w3-button w3-light-grey w3-section"  type="submit" onClick="submit(this.form)">Submit</button></p>
+    </form>
+  </div>
+
+<!-- End page content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-light-grey w3-padding-32">
+  <!-- <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>  -->
+</footer>
+
+</body>
+</html>
