@@ -36,7 +36,7 @@ LABELS=["Cyber Security", "CTI", "Malicious Activity"] # Labels used for indicat
 #
 # relationship1 = stix2.Relationship(courseOfAction1, 'mitigates', attackPattern1) # Relationship between COA and Attack Pattern
 
-def grabFormData():
+# def grabFormData():
     # Create instance of FieldStorage
     form = cgi.FieldStorage()
     # Get data from fields
