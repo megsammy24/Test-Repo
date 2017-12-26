@@ -76,9 +76,9 @@ function showDate(){
     <h1>Data Feeds</h1><br>
     <p class="w3-text-blue-grey w3-large"><b>Fill out what you can!</b></p>
 
-    <form id="threat" action="./feeds.py" method = "POST" target="_blank">
+    <form action="./feeds.py" method = "POST" target="_blank">
 	   <p> IP: <input class="w3-input w3-padding-16" type="text" style="border: 2px solid #b6d0e7" placeholder="Malicious IP Address" required name="ip_addr_m"></p>
-      <p><input class="w3-input w3-padding-16" type="time" placeholder="Time of Sign In Attempt" value="00:00:00" required name = "time"></p>
+      <!-- <p><input class="w3-input w3-padding-16" type="time" placeholder="Time of Sign In Attempt" value="00:00:00" required name = "time"></p>
       <p><input class="w3-input w3-padding-16" type="date" placeholder=showDate() value="showDate()" required name = "date"></p>
       <p></p>
       <p><class="w3-padding-16"><b>Does this IP Address have a history of malicious activity?</b></p>
@@ -87,7 +87,7 @@ function showDate(){
       <p></p>
       <p><class="w3-padding-16"><b>Has another university confirmed this IP address to be malevolent?</b></p>
       <p><input class="w3-input w3-padding-16" type="radio"  value="Yes" name = "confirm">Yes</p>
-        <p><input class="w3-input w3-padding-16" type="radio"  value="No" name = "confirm" checked>No</p>
+        <p><input class="w3-input w3-padding-16" type="radio"  value="No" name = "confirm" checked>No</p> -->
       <p><button class="w3-button w3-light-grey w3-section"  type="submit" onClick="submit(this.form)" name="Submit">Submit</button></p>
     </form>
   </div>
