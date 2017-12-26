@@ -2,6 +2,7 @@
 #Authors: Anastasia Bourlas and Megan Samuelson
 from datetime import datetime
 import uuid
+import stix2
 import cgi, cgitb
 
 # def grabFormData():
