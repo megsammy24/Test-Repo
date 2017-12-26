@@ -38,40 +38,40 @@ LABELS=["Cyber Security", "CTI", "Malicious Activity"] # Labels used for indicat
 
 # def grabFormData():
     # Create instance of FieldStorage
-    form = cgi.FieldStorage()
+form = cgi.FieldStorage()
     # Get data from fields
-    if form.getvalue('ip_addr_m'):
-        ip_addr_m = form.getvalue('ip_addr_m')
-        FORM_DATA.append(ip_addr_m) #FORM_DATA[0]
+if form.getvalue('ip_addr_m'):
+    ip_addr_m = form.getvalue('ip_addr_m')
+    FORM_DATA.append(ip_addr_m) #FORM_DATA[0]
 
-    if form.getvalue('time'):
-        time = form.getvalue('time')
-        FORM_DATA.append(time) #FORM_DATA[1]
+if form.getvalue('time'):
+    time = form.getvalue('time')
+    FORM_DATA.append(time) #FORM_DATA[1]
 
-    if form.getvalue('date'):
-        date = form.getvalue('date')
-        FORM_DATA.append(date) #FORM_DATA[2]
+if form.getvalue('date'):
+    date = form.getvalue('date')
+    FORM_DATA.append(date) #FORM_DATA[2]
 
-    if form.getvalue('hist'):
-        hist = form.getvalue('hist')
-        FORM_DATA.append(hist) #FORM_DATA[3]
+if form.getvalue('hist'):
+    hist = form.getvalue('hist')
+    FORM_DATA.append(hist) #FORM_DATA[3]
 
-    if form.getvalue('confirm'):
-        confirm = form.getvalue('confirm')
-        FORM_DATA.append(confirm) #FORM_DATA[4]
+if form.getvalue('confirm'):
+    confirm = form.getvalue('confirm')
+    FORM_DATA.append(confirm) #FORM_DATA[4]
 
 # Adds data to the database
-def addToDB():
-    connect = pypyodbc.connect('Driver={Sql Server Native Client 11.0};Server=.;Database=SAMPLE;Trusted_Connection=yes;')
-    cursor = connect.cursor()
-    print 'Trying to insert!'
-    cursor.execute("insert into [SAMPLE].[dbo].[Register] VALUES ('behzad','razzaqi')")
-    connect.commit()
-    print 'Insert Finish!'
-    connect.close()
+# def addToDB():
+#     connect = pypyodbc.connect('Driver={Sql Server Native Client 11.0};Server=.;Database=SAMPLE;Trusted_Connection=yes;')
+#     cursor = connect.cursor()
+#     print 'Trying to insert!'
+#     cursor.execute("insert into [SAMPLE].[dbo].[Register] VALUES ('behzad','razzaqi')")
+#     connect.commit()
+#     print 'Insert Finish!'
+#     connect.close()
 
-def createJSONFile():
-    print 'Hey There'
+# def createJSONFile():
+#     print 'Hey There'
 
 # def addIdentity():
 #     identity2 = stix2.Identity(
