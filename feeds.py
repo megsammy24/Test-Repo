@@ -4,7 +4,7 @@ from datetime import datetime
 #import stix2
 import uuid
 import cgi
-import cgitb; cgitb.enable()
+import cgitb
 #import pypyodbc
 FORM_DATA = []
 LABELS=["Cyber Security", "CTI", "Malicious Activity"] # Labels used for indicators
