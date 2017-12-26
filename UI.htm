@@ -5,11 +5,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+@media only screen and (max-width: 800px) {
+    .col {
+        display: block;
+        width: 100%;
+    }
+}
 <style>
 body {font-family: "Times New Roman", Georgia, Serif;}
 h1,h2,h3,h4,h5,h6 {
     font-family: "Playfair Display";
     letter-spacing: 5px;
+}
+.col-container {
+    display: table; /* Make the container element behave like a table */
+    width: 100%; /* Set full-width to expand the whole page */
+}
+
+.col {
+    display: table-cell; /* Make elements inside the container behave like table cells */
+    padding: 30px;
 }
 /* Standard syntax */
 @keyframes base{
@@ -19,82 +35,125 @@ h1,h2,h3,h4,h5,h6 {
     75%  { left:0px; top:200px;}
     100% { left:0px; top:0px;}
 }
-h1 {
+h1 {animation-direction:  backwards;
 width: 100px;
     height: 100px;
     position: relative;
+    animation-name: base;
+    animation-duration: 2s;
 }
 </style>
+
 <script>
-var app = angular.module("myApp", ["ngRoute"]);
-app.config(function($routeProvider) {
-    $routeProvider
-    .when("/", {
-        templateUrl : "main.htm"
-    })
-    .when("/change", {
-        templateUrl : "change.htm"
-    });
+var app = angular.module('app', []);
+app.controller('ctrl', function($scope) {
+
 });
 </script>
 <body>
-
+<div ng-app = "app" ng-controller = "ctrl" ng-init = "var = true">
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
-  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px; letter-size:12pt">
-    <a class="w3-bar-item ">Data Feed Form</a>
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px; letter-size:12pt" >
+    <a class="w3-bar-item " animation: header-spin 1.5>Data Feed Form</a>
     <!-- Right-sided navbar links. Hide them on small screens -->
-    <div class="w3-right w3-hide-small">
-      <a href="#!change" class="w3-bar-item w3-button">Change Record</a>
+     <div  class="w3-right  w3-hide-small">
+      <input type="button" value="Change Record" ng-click="var = !var" />
     </div>
   </div>
 </div>
 
-<!-- Header -->
-<header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
-  <img class="w3-image" src="" width="1600" height="200">
-  <div class="w3-display-bottomleft w3-padding-large w3-opacity" animation: header-spin 1.5>
-  </div>
-</header>
+<div ng-show = "!var" class = "w3-container w3-padding-64 animate-show-hide">
+  <form id = "change_threat">
+    <p><input class="w3-input w3-padding-16" type="text" style="border: 2px solid #b6d0e7" placeholder="Which IP record do you wish to change?" required name="ip_addr"></p>
+    <p><br>Justification for Change</br></p>
+    <select name="change">
+      <option> --Select-- </option>
+      <option> Cuz I can </option>
+      <option> Someone told me so </option>
+      <option> I'm bad at my job </option>
+      <option> A damn good reason</option>
+    </select>
+  </form>
+</div>
 
-
-
-</script>
-<script>
-function showDate(){
-  document.getElementById("threat.date").innerHTML = new Date(year, month, date);
-}
-</script>
 
 
 <!-- Page content -->
-<div class="w3-content" style="max-width:1100px">
-  <!-- Contact Section -->
-  <div class="w3-container w3-padding-64" id="main">
-    <h1>Data Feeds</h1><br>
+<div ng-show = "var" id = "main" class="w3-content col-container" style="max-width:1100px">
+  <!-- Form Section -->
+  <div class="w3-container w3-padding-64 col" id="main">
     <p class="w3-text-blue-grey w3-large"><b>Fill out what you can!</b></p>
 
-    <form action="/home/mxs41/Test-Repo/feeds.py" method = "post">
-	   <input class="w3-input w3-padding-16" type="text" style="border: 2px solid #b6d0e7" placeholder="Malicious IP Address" required name="ip_addr_m"><br/>
-      <!-- <p><input class="w3-input w3-padding-16" type="time" placeholder="Time of Sign In Attempt" value="00:00:00" required name = "time"></p>
-      <p><input class="w3-input w3-padding-16" type="date" placeholder=showDate() value="showDate()" required name = "date"></p>
+    <form id="threat" action="./threat_intel.py" method = "POST" target="_blank">
+	   <p><input class="w3-input w3-padding-16" type="text" style="border: 2px solid #b6d0e7" placeholder="Malicious IP Address" required name="ip_addr_m"></p>
+     <p><input class="w3-input w3-padding-16" type="text" style="border: 2px solid #b6d0e7" placeholder="Assigned IP Address" required name="ip_addr_a"></p>
+      <p><input class="w3-input w3-padding-16" type="time" style="border: 2px solid #b6d0e7" placeholder="Time of Login Attempt (00:00:00)" required name = "time"></p>
+      <p id = "date"><input class="w3-input w3-padding-16" type="date" style="border: 2px solid #b6d0e7" placeholder = "YYYY-MM-DD of Login Attempt" required name = "date"></p>
+      <p><input class="w3-input w3-padding-16" type="text" style="border: 2px solid #b6d0e7" placeholder="Beacon Address if applicable" name = "beacon"</p>
+      <p><input class="w3-input w3-padding-16" type="text" style="border: 2px solid #b6d0e7" placeholder="XFF Address if applicable" name = "xff"</p>
       <p></p>
+      <p><button class="w3-button w3-light-grey w3-section"  type="submit" onClick="submit(this.form)">Submit</button></p>
+    </div>
+
+      <div class = "col">
       <p><class="w3-padding-16"><b>Does this IP Address have a history of malicious activity?</b></p>
-      <p><input class="w3-input w3-padding-16" type="radio"  value="Yes" name = "hist">Yes</p>
+      <p><input class="w3-input w3-padding-16" type="radio"  value="Yes" name = "hist" >Yes</p>
       <p><input class="w3-input w3-padding-16" type="radio"  value="No" name = "hist" checked>No</p>
       <p></p>
-      <p><class="w3-padding-16"><b>Has another university confirmed this IP address to be malevolent?</b></p>
-      <p><input class="w3-input w3-padding-16" type="radio"  value="Yes" name = "confirm">Yes</p>
-        <p><input class="w3-input w3-padding-16" type="radio"  value="No" name = "confirm" checked>No</p> -->
-      <input type="submit" value="Submit" />
+      <p><class="w3-padding-16"><b>Has another university confirmed this IP address to be malevolent malicious?</p>
+      <p><input class="w3-input w3-padding-16" type="radio"  value="No" name = "confirm" checked>No</p>
+      <p><input class="w3-input w3-padding-16" type="radio"  value="Yes" name = "confirm" >Yes</p>
+
+        <p><br>Confidence Value</br></p>
+        <select name="confidence">
+          <option disabled selected value> --Select-- </option>
+          <option> 1 </option>
+          <option> 2 </option>
+          <option> 3 </option>
+          <option> 4 </option>
+          <option> 5 </option>
+          <option> 6 </option>
+          <option> 7 </option>
+          <option> 8 </option>
+          <option> 9 </option>
+          <option> 10 </option>
+        </select>
+
+        <p><br>Originating country of Malicious IP Address</br></p>
+        <select name="origin1">
+          <option disabled selected value> --Select-- </option>
+          <option> China </option>
+          <option> Brazil </option>
+          <option> United States </option>
+        </select>
+
+        <p><br>Originating country of IP Address</br></p>
+        <select name="origin2">
+          <option disabled selected value> --Select-- </option>
+          <option> China </option>
+          <option> Brazil </option>
+          <option> United States </option>
+        </select>
+
+      </div>
+
+
     </form>
   </div>
+
+
+</div>
+  <script>
+    document.getElementById("date").value = new Date();
+  </script>
 
 <!-- End page content -->
 </div>
 
 <!-- Footer -->
 <footer class="w3-center w3-light-grey w3-padding-32">
+
   <!-- <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>  -->
 </footer>
 
