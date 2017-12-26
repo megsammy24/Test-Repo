@@ -7,7 +7,7 @@ import cgitb
 
 # def grabFormData():
     # Create instance of FieldStorage
-# form = cgi.FieldStorage()
+form = cgi.FieldStorage()
 #     # Get data from fields
 #
 # ip_addr_m = form.getvalue('ip_addr_m')
