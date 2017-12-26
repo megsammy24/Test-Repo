@@ -23,8 +23,6 @@ h1 {
 width: 100px;
     height: 100px;
     position: relative;
-    animation-name: base;
-    animation-duration: 2s;
 }
 </style>
 <script>
@@ -77,7 +75,7 @@ function showDate(){
     <p class="w3-text-blue-grey w3-large"><b>Fill out what you can!</b></p>
 
     <form action="./feeds.py" method = "post">
-	   IP: <input class="w3-input w3-padding-16" type="text" style="border: 2px solid #b6d0e7" placeholder="Malicious IP Address" required name="ip_addr_m"><br/>
+	   <input class="w3-input w3-padding-16" type="text" style="border: 2px solid #b6d0e7" placeholder="Malicious IP Address" required name="ip_addr_m"><br/>
       <!-- <p><input class="w3-input w3-padding-16" type="time" placeholder="Time of Sign In Attempt" value="00:00:00" required name = "time"></p>
       <p><input class="w3-input w3-padding-16" type="date" placeholder=showDate() value="showDate()" required name = "date"></p>
       <p></p>

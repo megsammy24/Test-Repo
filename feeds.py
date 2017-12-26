@@ -28,7 +28,7 @@ ip_addr_m = form.getvalue('ip_addr_m')
 #     confirm = form.getvalue('confirm')
 #     FORM_DATA.append(confirm) #FORM_DATA[4]
 
-print "Content-type:text/html\r\n\r\n"
+print "Content-type:text/html; charset=utf-8\n\n"
 print "<html><head>"
 print "<title>My Webpage</title>"
 print "</head><body>"
