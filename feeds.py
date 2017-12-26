@@ -60,6 +60,16 @@ if form.getvalue('confirm'):
     confirm = form.getvalue('confirm')
     FORM_DATA.append(confirm) #FORM_DATA[4]
 
+print "Content-type:text/html\r\n\r\n"
+print "<html>"
+print "<head>"
+print "<title>Radio - Fourth CGI Program</title>"
+print "</head>"
+print "<body>"
+print "<h2> IP: %s</h2>" % ip_addr_m
+print "</body>"
+print "</html>"
+
 # Adds data to the database
 # def addToDB():
 #     connect = pypyodbc.connect('Driver={Sql Server Native Client 11.0};Server=.;Database=SAMPLE;Trusted_Connection=yes;')
