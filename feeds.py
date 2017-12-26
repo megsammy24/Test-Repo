@@ -2,8 +2,7 @@
 #Authors: Anastasia Bourlas and Megan Samuelson
 from datetime import datetime
 import uuid
-import cgi
-import cgitb
+import cgi, cgitb
 
 # def grabFormData():
     # Create instance of FieldStorage
@@ -31,7 +30,7 @@ ip_addr_m = form.getvalue('ip_addr_m')
 
 print "Content-type:text/html\r\n\r\n"
 print "<html><head>"
-print "<title>Radio - Fourth CGI Program</title>"
+print "<title>My Webpage</title>"
 print "</head><body>"
-print "<h2> Selected Subject is</h2>"
+print "<h2> Selected Subject is %s</h2>" % ip_addr_m
 print "</body></html>"
