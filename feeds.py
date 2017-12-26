@@ -60,7 +60,15 @@ if form.getvalue('confirm'):
     confirm = form.getvalue('confirm')
     FORM_DATA.append(confirm) #FORM_DATA[4]
 
-print ip_addr_m
+print "Content-type:text/html\r\n\r\n"
+print "<html>"
+print "<head>"
+print "<title>Radio - Fourth CGI Program</title>"
+print "</head>"
+print "<body>"
+print "<h2> Selected Subject is %s</h2>" % hist
+print "</body>"
+print "</html>"
 
 # Adds data to the database
 # def addToDB():
