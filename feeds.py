@@ -6,8 +6,6 @@ import uuid
 import cgi
 import cgitb
 #import pypyodbc
-FORM_DATA = []
-LABELS=["Cyber Security", "CTI", "Malicious Activity"] # Labels used for indicators
 
 # Constant relationship for course-of-action and attack pattern
 # identity1 = stix2.Identity(
