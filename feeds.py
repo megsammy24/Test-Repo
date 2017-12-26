@@ -5,12 +5,21 @@ import uuid
 import stix2
 import cgi, cgitb
 
+def addAttackPattern():
+    attackPattern2 = stix2.AttackPattern(created = str(datetime.now()),modified = str(datetime.now()),name = "Compromised Account")
+    return attackPattern2
+
+def main():
+    AP = addAttackPattern()
+    bundle = stix2.Bundle(objects=[AP])
+    print bundle
+
 # def grabFormData():
     # Create instance of FieldStorage
-form = cgi.FieldStorage()
+#form = cgi.FieldStorage()
 #     # Get data from fields
 #
-ip_addr_m = form.getvalue('ip_addr_m')
+# = form.getvalue('ip_addr_m')
 # FORM_DATA.append(ip_addr_m) #FORM_DATA[0]
 #
 # if form.getvalue('time'):
@@ -29,9 +38,9 @@ ip_addr_m = form.getvalue('ip_addr_m')
 #     confirm = form.getvalue('confirm')
 #     FORM_DATA.append(confirm) #FORM_DATA[4]
 
-print "Content-type:text/html; charset=utf-8\n\n"
-print "<html><head>"
-print "<title>My Webpage</title>"
-print "</head><body>"
-print "<h2> Selected Subject is %s</h2>" % ip_addr_m
-print "</body></html>"
+# print "Content-type:text/html; charset=utf-8\n\n"
+# print "<html><head>"
+# print "<title>My Webpage</title>"
+# print "</head><body>"
+# print "<h2> Selected Subject is %s</h2>" % ip_addr_m
+# print "</body></html>"
