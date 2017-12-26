@@ -10,7 +10,7 @@ import cgitb
 form = cgi.FieldStorage()
 #     # Get data from fields
 #
-# ip_addr_m = form.getvalue('ip_addr_m')
+ip_addr_m = form.getvalue('ip_addr_m')
 # FORM_DATA.append(ip_addr_m) #FORM_DATA[0]
 #
 # if form.getvalue('time'):
@@ -29,12 +29,9 @@ form = cgi.FieldStorage()
 #     confirm = form.getvalue('confirm')
 #     FORM_DATA.append(confirm) #FORM_DATA[4]
 
-print "Content-type:text/html\r\n\r\n"
-print "<html>"
-print "<head>"
+print 'Content-type:text/html\r\n\r\n'
+print "<html><head>"
 print "<title>Radio - Fourth CGI Program</title>"
-print "</head>"
-print "<body>"
+print "</head><body>"
 print "<h2> Selected Subject is</h2>"
-print "</body>"
-print "</html>"
+print "</body></html>"
