@@ -40,9 +40,9 @@ LABELS=["Cyber Security", "CTI", "Malicious Activity"] # Labels used for indicat
     # Create instance of FieldStorage
 form = cgi.FieldStorage()
     # Get data from fields
-if form.getvalue('ip_addr_m'):
-    ip_addr_m = form.getvalue('ip_addr_m')
-    FORM_DATA.append(ip_addr_m) #FORM_DATA[0]
+
+ip_addr_m = form.getvalue('ip_addr_m')
+FORM_DATA.append(ip_addr_m) #FORM_DATA[0]
 
 if form.getvalue('time'):
     time = form.getvalue('time')
